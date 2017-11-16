@@ -1,0 +1,12 @@
+extends layout.pug
+
+block content
+  div(class='container')
+    h1 #{contentTitle}
+    p #{content}
+    if scripts
+      if scripts.constructor === Array
+        each src in scripts
+          script(src=`${src}`)
+      else
+        script(src=`${scripts}`)

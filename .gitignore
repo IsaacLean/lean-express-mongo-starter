@@ -1,0 +1,4 @@
+node_modules/
+lean-express-mongo-starter.sublime-workspace
+npm-debug.log
+secret.json
