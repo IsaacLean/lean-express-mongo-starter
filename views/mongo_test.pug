@@ -1,0 +1,14 @@
+extends layout.pug
+
+block content
+  h1 Kitten Database
+  p #{text}
+  ul
+    if kittens
+      each kitty in kittens
+        li= kitty.name
+  if !kittens
+    form(method='post' action='mongo_test')
+      button(type='submit') Run test
+  else
+    a(href='/mongo_test') Return to start test page
