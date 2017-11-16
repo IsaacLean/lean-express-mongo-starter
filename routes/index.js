@@ -4,7 +4,7 @@ const router = express.Router();
 const Kitten = require('../models/kitten');
 
 router.get('/', (req, res) => {
-  res.render('root');
+  res.render('root', { headTitle: 'Lean Express/Mongo Starter' });
 });
 
 router.get('/hello_world', (req, res) => {
