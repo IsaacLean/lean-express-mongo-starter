@@ -1,26 +1,57 @@
+'use strict';
+
 const express = require('express');
+const jsonParser = require('body-parser').json;
+const logger = require('morgan');
 const mongoose = require('mongoose');
 
 const config = require('./config');
+const mongoTestRoutes = require('./routes/mongoTest');
+const restAPITestRoutes = require('./routes/restAPITest');
 const routes = require('./routes');
 
 mongoose.connect(config.CONNECTION_STR);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  console.log('db connection successful');
+});
 
 const app = express();
 app.set('view engine', 'pug');
+app.use(logger('dev'));
+app.use(jsonParser());
 app.use('/static', express.static('static'));
 app.use('/static', express.static('node_modules/bootstrap/dist'));
 app.use('/static', express.static('node_modules/jquery'));
 app.use('/static', express.static('node_modules/popper.js/dist/umd'));
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  if (req.method === 'OPTIONS') {
+    res.header('Access-Control-Allow-Methods', 'PUT,POST,DELETE');
+    return res.status(200).json({});
+  }
+  next();
+});
 
 app.use(routes);
+app.use('/mongo_test', mongoTestRoutes);
+app.use('/rest_api_test', restAPITestRoutes);
+
+// 404
+app.use(function(req, res, next) {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
 // error handler
 app.use((err, req, res, next) => {
-  res.status(err.status);
-  res.render('error', { err: err });
+  res.status(err.status || 500);
+  res.json({
+    error: { message: err.message }
+  });
 });
 
-app.listen(config.PORT, () => console.log(`Example app listening on port ${config.PORT}!`));
+module.exports = app;

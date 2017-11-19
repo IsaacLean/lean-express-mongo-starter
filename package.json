@@ -2,9 +2,9 @@
   "name": "lean-express-mongo-starter",
   "version": "0.0.1",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app",
+    "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "nodemon"
   },
@@ -18,10 +18,12 @@
   },
   "homepage": "https://github.com/IsaacLean/lean-express-mongo-starter#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "bootstrap": "^4.0.0-beta.2",
     "express": "^4.16.2",
     "jquery": "^1.9.1",
     "mongoose": "^4.13.2",
+    "morgan": "^1.9.0",
     "popper.js": "^1.12.9",
     "pug": "^2.0.0-rc.4"
   },

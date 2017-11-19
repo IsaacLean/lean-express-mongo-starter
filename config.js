@@ -1,6 +1,9 @@
-const secret = require('./secret');
+'use strict';
+
+const secret = require('./secret'); // DO NOT VERSION THIS FILE!!!
 
 module.exports = {
-  CONNECTION_STR: 'mongodb://localhost:27017/lean-express-mongo-starter',
-  PORT: 3000
+  EXPRESS_PORT: 3000,
+  MONGO_PORT: 27017,
+  CONNECTION_STR: `mongodb://localhost:${this.MONGO_PORT}/lean-express-mongo-starter`
 };
