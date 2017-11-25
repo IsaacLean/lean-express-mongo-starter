@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "debugger": "node-inspector index",
     "start": "node index",
-    "test": "mocha",
+    "start:debug": "node --debug-brk index",
+    "test": "mocha --use_strict",
     "watch": "nodemon"
   },
   "repository": {
@@ -33,6 +35,7 @@
     "eslint-config-prettier": "^2.7.0",
     "eslint-plugin-prettier": "^2.3.1",
     "mocha": "^4.0.1",
+    "node-inspector": "^1.1.1",
     "nodemon": "^1.12.1",
     "prettier": "^1.8.2",
     "supertest": "^3.0.0"
