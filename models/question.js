@@ -30,11 +30,14 @@ AnswerSchema.method('vote', function(vote, callback) {
   this.parent().save(callback);
 });
 
-const QuestionSchema = new mongoose.Schema({
-  text: String,
-  createdAt: { type: Date, default: Date.now },
-  answers: [AnswerSchema]
-});
+const QuestionSchema = new mongoose.Schema(
+  {
+    text: String,
+    createdAt: { type: Date, default: Date.now },
+    answers: [AnswerSchema]
+  },
+  { versionKey: false }
+);
 
 QuestionSchema.pre('save', function(next) {
   this.answers.sort(sortAnswers);

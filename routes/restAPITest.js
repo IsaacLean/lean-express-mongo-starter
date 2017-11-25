@@ -33,6 +33,16 @@ router.get('/', (req, res) => {
   res.send('api overview');
 });
 
+// Create a new question
+router.post('/questions', (req, res, next) => {
+  const question = new Question(req.body);
+  question.save((err, question) => {
+    if (err) return next(err);
+    res.status(201);
+    res.json(question);
+  });
+});
+
 // Get questions collection
 router.get('/questions', (req, res, next) => {
   Question.find({})
@@ -46,16 +56,6 @@ router.get('/questions', (req, res, next) => {
 // Get a specific question
 router.get('/questions/:qID', (req, res) => {
   res.json(req.question);
-});
-
-// Create a new question
-router.post('/questions', (req, res, next) => {
-  const question = new Question(req.body);
-  question.save((err, question) => {
-    if (err) return next(err);
-    res.status(201);
-    res.json(question);
-  });
 });
 
 // Create a new answer

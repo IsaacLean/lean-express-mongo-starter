@@ -10,12 +10,14 @@ const mongoTestRoutes = require('./routes/mongoTest');
 const restAPITestRoutes = require('./routes/restAPITest');
 const routes = require('./routes');
 
-mongoose.connect(config.CONNECTION_STR);
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-  console.log('db connection successful');
-});
+const promise = mongoose.connect(config.CONNECTION_STR, { useMongoClient: true });
+promise
+  .then(db => {
+    console.log('db connection successful');
+  })
+  .catch(err => {
+    console.error.bind(console, 'connection error:');
+  });
 
 const app = express();
 app.set('view engine', 'pug');
