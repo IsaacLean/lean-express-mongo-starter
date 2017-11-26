@@ -10,7 +10,7 @@ const mongoTestRoutes = require('./routes/mongoTest');
 const restAPITestRoutes = require('./routes/restAPITest');
 const routes = require('./routes');
 
-const promise = mongoose.connect(config.CONNECTION_STR, { useMongoClient: true });
+const promise = mongoose.connect(config.MONGODB_CONNECTION_STR, { useMongoClient: true });
 promise
   .then(db => {
     console.log('db connection successful');
