@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "debugger": "node-inspector index",
+    "format": "prettier --write --print-width=120 --single-quote --tab-width=2 \"**/*.js\"",
     "lint": "eslint --cache --ext .js --ignore-path .gitignore .",
     "lint:fix": "eslint --cache --ext .js --ignore-path .gitignore --fix .",
     "start": "node index",
