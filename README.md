@@ -32,3 +32,6 @@ The configurations are designed to be as clean and minimal as possible, giving y
 
 ### Heroku
 If you want to to deploy to [Heroku](https://heroku.com), checkout the ```heroku``` branch.
+
+### Need Help?
+Check out the [GitHub wiki](https://github.com/IsaacLean/lean-express-mongo-starter/wiki)!
