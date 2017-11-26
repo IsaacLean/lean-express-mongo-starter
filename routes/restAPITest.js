@@ -30,7 +30,7 @@ router.param('aID', (req, res, next, id) => {
 
 // API overview
 router.get('/', (req, res) => {
-  res.send('api overview');
+  res.render('rest_api_test', { headTitle: 'REST API Test' });
 });
 
 // Create a new question
@@ -43,7 +43,7 @@ router.post('/questions', (req, res, next) => {
   });
 });
 
-// Get questions collection
+// Read questions collection
 router.get('/questions', (req, res, next) => {
   Question.find({})
     .sort({ createdAt: -1 })
@@ -53,7 +53,7 @@ router.get('/questions', (req, res, next) => {
     });
 });
 
-// Get a specific question
+// Read a specific question
 router.get('/questions/:qID', (req, res) => {
   res.json(req.question);
 });
