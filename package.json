@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "debugger": "node-inspector index",
+    "lint": "eslint --cache --ext .js --ignore-path .gitignore .",
+    "lint:fix": "eslint --cache --ext .js --ignore-path .gitignore --fix .",
     "start": "node index",
     "start:debug": "node --debug-brk index",
     "test": "mocha --use_strict",
