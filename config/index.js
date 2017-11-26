@@ -3,11 +3,11 @@
 const _ = require('lodash');
 
 const config = {
-  port: process.env.PORT || 3000
+  PORT: process.env.PORT || 3000
 };
 
-config.env = process.env.NODE_ENV || 'development';
+config.ENV = process.env.NODE_ENV || 'development';
 
-const envConfig = require('./' + config.env);
+const envConfig = require('./' + config.ENV);
 
 module.exports = _.merge(config, envConfig);
