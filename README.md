@@ -3,14 +3,17 @@ This codebase can help you kickoff your next Express & MongoDB project.
 
 ## Features
 ### Main Dependencies
+* [Node.js](https://nodejs.org)
 * [Express](https://expressjs.com)
 * [Mongoose](http://mongoosejs.com)
 * [MongoDB](https://mongodb.com)
 
 ### Easy Setup
-Run ```npm install``` to download and install almost all the dependencies you need to run the project. With this command alone you'll be able to run most of the application, but if you want to run the examples that require a database you'll need to install MongoDB.
+First you must have Node.js installed.
 
-After MongoDB is installed, run the daemon ```mongod``` alongside the application to get database-dependent functionality working.
+Next, run ```npm install``` to download and install almost all of the dependencies you need to run the project. With this command alone you'll be able to run most of the application, but if you want to run the examples that require a database you'll need to install MongoDB.
+
+After MongoDB is installed, run the daemon ```mongod``` alongside the application to get database functionality working.
 
 ### Convenient Development
 Simply run ```npm run watch``` to start the application.
