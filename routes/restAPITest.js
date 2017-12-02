@@ -33,7 +33,7 @@ router.get('/', (req, res) => {
   res.render('rest_api_test', { headTitle: 'REST API Test' });
 });
 
-// Create a new question
+// Create a question
 router.post('/questions', (req, res, next) => {
   const question = new Question(req.body);
   question.save((err, question) => {

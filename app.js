@@ -1,27 +1,36 @@
 'use strict';
 
 const express = require('express');
+const helmet = require('helmet');
 const jsonParser = require('body-parser').json;
-const logger = require('morgan');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
 
 const config = require('./config');
 const mongoTestRoutes = require('./routes/mongoTest');
 const restAPITestRoutes = require('./routes/restAPITest');
 const routes = require('./routes');
 
+mongoose.Promise = global.Promise;
 const promise = mongoose.connect(config.MONGODB_CONNECTION_STR, { useMongoClient: true });
 promise
   .then(db => {
-    console.log('db connection successful');
+    console.log('db connection successful'); // eslint-disable-line
   })
   .catch(err => {
-    console.error.bind(console, 'connection error:');
+    console.error.bind(console, 'connection error:'); // eslint-disable-line
   });
 
 const app = express();
 app.set('view engine', 'pug');
-app.use(logger('dev'));
+
+if (config.ENV === 'production') {
+  app.use(morgan('common'));
+} else if (config.ENV === 'development') {
+  app.use(morgan('dev'));
+}
+
+app.use(helmet());
 app.use(jsonParser());
 app.use('/static', express.static('static'));
 app.use('/static', express.static('node_modules/bootstrap/dist'));

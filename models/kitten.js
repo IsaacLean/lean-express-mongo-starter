@@ -8,7 +8,7 @@ const kittySchema = mongoose.Schema({
 
 kittySchema.methods.speak = function() {
   const greeting = this.name ? `Meow name is ${this.name}` : `I don't have a name`;
-  console.log(greeting);
+  console.log(greeting); // eslint-disable-line
 };
 
 const Kitten = mongoose.model('Kitten', kittySchema);

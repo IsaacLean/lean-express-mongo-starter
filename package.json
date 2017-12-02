@@ -1,6 +1,6 @@
 {
   "name": "lean-express-mongo-starter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,13 +10,14 @@
     "lint:fix": "eslint --cache --ext .js --ignore-path .gitignore --fix .",
     "start": "node index",
     "test": "mocha --use_strict",
-    "watch": "nodemon"
+    "watch": "NODE_ENV=development nodemon"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IsaacLean/lean-express-mongo-starter.git"
   },
   "author": "Matthew Lean",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/IsaacLean/lean-express-mongo-starter/issues"
   },
@@ -25,6 +26,7 @@
     "body-parser": "^1.18.2",
     "bootstrap": "^4.0.0-beta.2",
     "express": "^4.16.2",
+    "helmet": "^3.9.0",
     "jquery": "^1.9.1",
     "lodash": "^4.17.4",
     "mongoose": "^4.13.2",

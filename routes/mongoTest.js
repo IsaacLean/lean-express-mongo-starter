@@ -15,22 +15,22 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const silence = new Kitten({ name: 'Silence' });
-  console.log(silence.name);
+  console.log(silence.name); // eslint-disable-line
 
   const fluffy = new Kitten({ name: 'Fluffy' });
-  console.log(fluffy);
+  console.log(fluffy); // eslint-disable-line
   fluffy.speak();
 
   Kitten.find({ name: /^Fluff/ }, function(err, kittens) {
-    if (err) return console.error(err);
-    console.log(kittens);
+    if (err) return console.error(err); // eslint-disable-line
+    console.log(kittens); // eslint-disable-line
   });
 
   const noName = new Kitten();
   noName.speak();
 
   fluffy.save(function(err, fluffy) {
-    if (err) return console.error(err);
+    if (err) return console.error(err); // eslint-disable-line
     fluffy.speak();
     res.redirect('/mongo_test/done');
   });
@@ -39,7 +39,7 @@ router.post('/', (req, res) => {
 router.get('/done', (req, res, next) => {
   Kitten.find(function(err, kittens) {
     if (err) {
-      console.error(err);
+      console.error(err); // eslint-disable-line
       return next(err);
     } else {
       res.render('mongo_test', {
