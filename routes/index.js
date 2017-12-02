@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/hello_world', (req, res) => {
-  res.send('Hello world!');
+  res.send('Hello World!');
 });
 
 router.get('/template_test', (req, res) => {

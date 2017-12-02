@@ -135,7 +135,6 @@ describe('Questions API', () => {
             const answer = res.body.answers[0];
             request(app)
               .delete(`/rest_api_test/questions/${question._id}/answers/${answer._id}`)
-              .send({ text: text })
               .set('Accept', 'application/json')
               .expect('Content-Type', /json/)
               .expect(200)
