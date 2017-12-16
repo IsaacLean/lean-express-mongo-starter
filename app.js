@@ -30,7 +30,7 @@ app.use(helmet());
 app.use(jsonParser());
 app.use('/static', express.static('static'));
 app.use('/static', express.static('node_modules/bootstrap/dist'));
-app.use('/static', express.static('node_modules/jquery'));
+app.use('/static', express.static('node_modules/jquery/dist'));
 app.use('/static', express.static('node_modules/popper.js/dist/umd'));
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
