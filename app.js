@@ -56,9 +56,7 @@ app.use(function(req, res, next) {
 // error handler
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
-  res.json({
-    error: { message: err.message }
-  });
+  res.json({ error: { message: err.message } });
 });
 
 console.log(`Mode: ${config.ENV}`); // eslint-disable-line

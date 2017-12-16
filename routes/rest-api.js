@@ -9,12 +9,12 @@ router.param('qID', (req, res, next, id) => {
   Question.findById(id, (err, doc) => {
     if (err) return next(err);
     if (!doc) {
-      err = new Error('Not Found');
-      err.status = 404;
-      return next(err);
+      const error = new Error('Not Found');
+      error.status = 404;
+      return next(error);
     }
     req.question = doc;
-    return next();
+    next();
   });
 });
 
@@ -71,7 +71,7 @@ router.post('/questions/:qID/answers', (req, res, next) => {
 // Update a specific answer
 router.put('/questions/:qID/answers/:aID', (req, res, next) => {
   req.answer.update(req.body, (err, question) => {
-    if (err) next(err);
+    if (err) return next(err);
     res.json(question.toObject());
   });
 });
@@ -95,7 +95,7 @@ router.post(
     if (req.params.dir.search(/^(up|down)$/) === -1) {
       const err = new Error('Not Found');
       err.status = 404;
-      next(err);
+      return next(err);
     } else {
       req.vote = req.params.dir;
       next();

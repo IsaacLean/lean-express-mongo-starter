@@ -7,9 +7,7 @@ router.get('/', (req, res) => {
   res.render('root', { headTitle: 'Lean Express/Mongo Starter' });
 });
 
-router.get('/hello-world', (req, res) => {
-  res.send('Hello World!');
-});
+router.get('/hello-world', (req, res) => res.send('Hello World!'));
 
 router.get('/template-test', (req, res) => {
   res.render('template-test', {
