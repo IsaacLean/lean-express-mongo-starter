@@ -2,8 +2,16 @@ const expect = require('chai').expect;
 const request = require('supertest');
 
 const app = require('../../app');
+const Question = require('../../models/question');
 
 describe('REST API', () => {
+  before(done => {
+    Question.remove({}, err => {
+      if (err) throw new Error('Error clearing question collection');
+      done();
+    });
+  });
+
   it('should create a question', done => {
     request(app)
       .post('/rest-api/questions')
