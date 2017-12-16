@@ -8,6 +8,7 @@
     "format": "prettier --write --print-width=120 --single-quote --tab-width=2 \"**/*.js\"",
     "lint": "eslint --cache --ext .js --ignore-path .gitignore .",
     "lint:fix": "eslint --cache --ext .js --ignore-path .gitignore --fix .",
+    "preview": "heroku local",
     "start": "node index",
     "test": "NODE_ENV=testing mocha --use_strict",
     "watch": "NODE_ENV=development nodemon"
