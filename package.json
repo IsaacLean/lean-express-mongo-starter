@@ -9,7 +9,7 @@
     "lint": "eslint --cache --ext .js --ignore-path .gitignore .",
     "lint:fix": "eslint --cache --ext .js --ignore-path .gitignore --fix .",
     "start": "node index",
-    "test": "mocha --use_strict",
+    "test": "NODE_ENV=testing mocha --use_strict",
     "watch": "NODE_ENV=development nodemon"
   },
   "repository": {

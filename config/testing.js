@@ -1,3 +1,7 @@
 'use strict';
 
-module.exports = {};
+const config = require('./default');
+
+module.exports = {
+  MONGO_URI: `${config.MONGO_URI}_test`
+};
