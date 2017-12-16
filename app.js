@@ -7,19 +7,15 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 
 const config = require('./config');
-const mongoTestRoutes = require('./routes/mongoTest');
-const restAPITestRoutes = require('./routes/restAPITest');
+const kittenDBRoutes = require('./routes/kitten-db');
+const restAPITestRoutes = require('./routes/rest-api');
 const routes = require('./routes');
 
 mongoose.Promise = global.Promise;
-const promise = mongoose.connect(config.MONGODB_CONNECTION_STR, { useMongoClient: true });
-promise
-  .then(db => {
-    console.log('db connection successful'); // eslint-disable-line
-  })
-  .catch(err => {
-    console.error.bind(console, 'connection error:'); // eslint-disable-line
-  });
+mongoose
+  .connect(config.MONGODB_CONNECTION_STR, { useMongoClient: true })
+  .then(() => console.log('db connection successful')) //eslint-disable-line
+  .catch(err => console.error('connection error: %s', err)); // eslint-disable-line
 
 const app = express();
 app.set('view engine', 'pug');
@@ -47,8 +43,8 @@ app.use((req, res, next) => {
 });
 
 app.use(routes);
-app.use('/mongo_test', mongoTestRoutes);
-app.use('/rest_api_test', restAPITestRoutes);
+app.use('/kitten-db', kittenDBRoutes);
+app.use('/rest-api', restAPITestRoutes);
 
 // 404
 app.use(function(req, res, next) {
@@ -64,5 +60,7 @@ app.use((err, req, res, next) => {
     error: { message: err.message }
   });
 });
+
+console.log(`Mode: ${config.ENV}`); // eslint-disable-line
 
 module.exports = app;

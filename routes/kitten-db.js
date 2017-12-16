@@ -6,10 +6,10 @@ const router = express.Router();
 const Kitten = require('../models/kitten');
 
 router.get('/', (req, res) => {
-  res.render('mongo_test', {
-    headTitle: 'MongoDB & Mongoose Test',
+  res.render('kitten-db', {
+    headTitle: 'Kitten Database',
     text:
-      'Clicking the button below will trigger the MongoDB test which will update the database. Please check server logs and database after the test is done.'
+      'Clicking the button below will trigger the MongoDB/Mongoose test which will update the database. Please check server logs and database after the test is done.'
   });
 });
 
@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
   fluffy.save(function(err, fluffy) {
     if (err) return console.error(err); // eslint-disable-line
     fluffy.speak();
-    res.redirect('/mongo_test/done');
+    res.redirect('/kitten-db/done');
   });
 });
 
@@ -42,7 +42,7 @@ router.get('/done', (req, res, next) => {
       console.error(err); // eslint-disable-line
       return next(err);
     } else {
-      res.render('mongo_test', {
+      res.render('kitten-db', {
         headTitle: 'MongoDB & Mongoose Test - Done',
         kittens: kittens,
         text: 'Test is done.'

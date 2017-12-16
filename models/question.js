@@ -36,7 +36,13 @@ const QuestionSchema = new mongoose.Schema(
     createdAt: { type: Date, default: Date.now },
     answers: [AnswerSchema]
   },
-  { versionKey: false }
+  {
+    toObject: {
+      transform: (doc, ret) => {
+        delete ret.__v;
+      }
+    }
+  }
 );
 
 QuestionSchema.pre('save', function(next) {

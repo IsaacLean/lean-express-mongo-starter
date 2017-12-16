@@ -1,0 +1,29 @@
+extends layout.pug
+
+block content
+  h1 REST API
+  h2 Model
+  p You can find the models for both <b>Question</b> and <b>Answer</b> in the following project file:
+  pre models/question.js
+
+  h2 API
+  h3 Questions
+  ul
+    li Create a new question
+      pre <b>POST</b>: /rest-api/questions
+    li Read questions collection
+      pre <b>GET</b>: /rest-api/questions
+    li Read a specific question
+      pre <b>GET</b>: /rest-api/questions/{QUESTION_ID}
+  h3 Answers
+  ul
+    li Create a new answer
+      pre <b>POST</b>: /rest-api/questions/{QUESTION_ID}/answers
+    li Update a specific answer
+      pre <b>PUT</b>: /rest-api/questions/{QUESTION_ID}/answers/{ANSWER_ID}
+    li Delete a specific answer
+      pre <b>DELETE</b>: /rest-api/questions/{QUESTION_ID}/answers/{ANSWER_ID}
+    li Vote up a specific answer
+      pre <b>POST</b>: /rest-api/questions/{QUESTION_ID}/answers/vote-up
+    li Vote down a specific answer
+      pre <b>POST</b>: /rest-api/questions/{QUESTION_ID}/answers/vote-down

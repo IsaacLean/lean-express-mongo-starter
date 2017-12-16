@@ -7,12 +7,12 @@ router.get('/', (req, res) => {
   res.render('root', { headTitle: 'Lean Express/Mongo Starter' });
 });
 
-router.get('/hello_world', (req, res) => {
+router.get('/hello-world', (req, res) => {
   res.send('Hello World!');
 });
 
-router.get('/template_test', (req, res) => {
-  res.render('template_test', {
+router.get('/template-test', (req, res) => {
+  res.render('template-test', {
     content: `A big strong tree needs big strong roots.
       There isn't a rule.
       You just practice and find out which way works best for you.
