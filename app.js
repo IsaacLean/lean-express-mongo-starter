@@ -13,7 +13,7 @@ const routes = require('./routes');
 
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(config.MONGO_URI, { useMongoClient: true })
+  .connect(config.MONGODB_URI, { useMongoClient: true })
   .then(() => console.log('db connection successful')) //eslint-disable-line
   .catch(err => console.error('connection error: %s', err)); // eslint-disable-line
 
