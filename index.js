@@ -5,4 +5,4 @@ const config = require('./config');
 
 const PORT = config.PORT;
 
-app.listen(PORT, () => console.log(`Example app listening on port ${PORT}! [mode: ${config.ENV}]`)); // eslint-disable-line
+app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`)); // eslint-disable-line

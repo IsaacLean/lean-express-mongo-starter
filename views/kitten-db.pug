@@ -8,7 +8,7 @@ block content
       each kitty in kittens
         li= kitty.name
   if !kittens
-    form(method='post' action='mongo_test')
+    form(method='post' action='kitten-db')
       button(type='submit') Run test
   else
-    a(href='/mongo_test') Return to start test page
+    a(href='/kitten-db') Return to start test page

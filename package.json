@@ -1,6 +1,6 @@
 {
   "name": "lean-express-mongo-starter",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,8 +8,8 @@
     "format": "prettier --write --print-width=120 --single-quote --tab-width=2 \"**/*.js\"",
     "lint": "eslint --cache --ext .js --ignore-path .gitignore .",
     "lint:fix": "eslint --cache --ext .js --ignore-path .gitignore --fix .",
-    "start": "node index",
-    "test": "mocha --use_strict",
+    "start": "NODE_ENV=production node index",
+    "test": "NODE_ENV=testing mocha --use_strict",
     "watch": "NODE_ENV=development nodemon"
   },
   "repository": {
@@ -27,21 +27,21 @@
     "bootstrap": "^4.0.0-beta.2",
     "express": "^4.16.2",
     "helmet": "^3.9.0",
-    "jquery": "^1.9.1",
+    "jquery": "^1.12.4",
     "lodash": "^4.17.4",
-    "mongoose": "^4.13.2",
+    "mongoose": "^4.13.7",
     "morgan": "^1.9.0",
-    "popper.js": "^1.12.9",
+    "popper.js": "^1.13.0",
     "pug": "^2.0.0-rc.4"
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "eslint": "^4.11.0",
-    "eslint-config-prettier": "^2.7.0",
+    "eslint": "^4.13.1",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.3.1",
     "mocha": "^4.0.1",
-    "nodemon": "^1.12.1",
-    "prettier": "^1.8.2",
+    "nodemon": "^1.13.3",
+    "prettier": "^1.9.2",
     "supertest": "^3.0.0"
   }
 }

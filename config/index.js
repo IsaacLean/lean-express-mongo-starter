@@ -2,12 +2,7 @@
 
 const _ = require('lodash');
 
-const config = {
-  MONGODB_CONNECTION_STR: `mongodb://localhost:27017/lean-express-mongo-starter`,
-  PORT: process.env.PORT || 3000
-};
-
-config.ENV = process.env.NODE_ENV;
+const config = require('./default');
 
 let envConfig;
 if (config.ENV) envConfig = require('./' + config.ENV);
