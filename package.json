@@ -8,10 +8,10 @@
     "format": "prettier --write --print-width=120 --single-quote --tab-width=2 \"**/*.js\"",
     "lint": "eslint --cache --ext .js --ignore-path .gitignore .",
     "lint:fix": "eslint --cache --ext .js --ignore-path .gitignore --fix .",
-    "preview": "heroku local",
+    "preview": "NODE_ENV=production heroku local",
     "start": "node index",
     "test": "NODE_ENV=testing mocha --use_strict",
-    "watch": "NODE_ENV=development nodemon"
+    "watch": "NODE_ENV=development nodemon --exec \"heroku local\" --signal SIGTERM"
   },
   "repository": {
     "type": "git",
